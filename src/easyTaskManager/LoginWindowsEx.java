@@ -17,8 +17,10 @@ import javax.swing.JButton;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 import javax.swing.UIManager;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class LoginEx extends JFrame {
+public class LoginWindowsEx extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -31,7 +33,7 @@ public class LoginEx extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					LoginEx frame = new LoginEx();
+					LoginWindowsEx frame = new LoginWindowsEx();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,7 +45,7 @@ public class LoginEx extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public LoginEx() {
+	public LoginWindowsEx() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 744, 471);
 		contentPane = new JPanel();
@@ -60,7 +62,7 @@ public class LoginEx extends JFrame {
 		
 		JLabel lblLeftImage = new JLabel("New label");
 		lblLeftImage.setHorizontalAlignment(SwingConstants.CENTER);
-		lblLeftImage.setIcon(new ImageIcon("C:\\Users\\Marco\\Pictures\\spiderweb1.jpg"));
+		lblLeftImage.setIcon(new ImageIcon(LoginWindowsEx.class.getResource("/easyTaskManager/imgs/spiderweb1.jpg")));
 		panel.add(lblLeftImage);
 		
 		JPanel panel_1 = new JPanel();
@@ -107,12 +109,22 @@ public class LoginEx extends JFrame {
 		panel_3.setLayout(new BorderLayout(0, 0));
 		
 		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnLogin.setForeground(UIManager.getColor("Button.light"));
 		btnLogin.setBackground(Color.WHITE);
 		btnLogin.setFont(new Font("Palatino Linotype", Font.PLAIN, 50));
 		panel_3.add(btnLogin);
 		
 		JButton btnQuit = new JButton("Quit");
+		btnQuit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+			}
+		});
 		btnQuit.setVerticalAlignment(SwingConstants.BOTTOM);
 		btnQuit.setForeground(UIManager.getColor("Button.light"));
 		btnQuit.setFont(new Font("Palatino Linotype", Font.PLAIN, 17));
