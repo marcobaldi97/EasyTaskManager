@@ -7,12 +7,13 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class DtGlobalParams {
-	String odbc_location, user_db, pass_db;
+	String odbc_location, user_db, pass_db, current_user;
 	
 	public DtGlobalParams(String param_odbc_location, String param_user_db, String param_pass_db) {
 		odbc_location = param_odbc_location;
 		user_db = param_user_db;
 		pass_db = param_pass_db;
+		current_user = null;
 	}
 	
 	public String get_odbc_location() {
@@ -27,6 +28,10 @@ public class DtGlobalParams {
 		return odbc_location;
 	}
 	
+	public String get_current_user() {
+		return current_user;
+	}
+	
 	public void set_odbc_location(String param) {
 		odbc_location = param;
 	}
@@ -38,6 +43,10 @@ public class DtGlobalParams {
 	public void set_pass_db(String param) {
 		pass_db = param;
 	}	
+	
+	public void set_current_user(String param) {
+		current_user = param;
+	}
 	
 	public Connection getConnectionLocal() {
 		try {

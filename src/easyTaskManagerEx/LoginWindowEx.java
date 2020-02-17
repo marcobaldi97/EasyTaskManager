@@ -130,9 +130,12 @@ public class LoginWindowEx extends JFrame {
 					if(resultSet.next()) {
 						String passwordIngresada = textFieldContraseña.getText();
 						if(passwordIngresada.equals(resultSet.getString(2))) {
-							//mainMenuFrame = new MainMenuWindow(odbc_location, user_db, pass_db, textFieldUsuario.getText());
-							//mainMenuFrame.setVisible(true);
-							//setVisible(false);
+							String current_user = textFieldUsuario.getText();
+							globalParams.set_current_user(current_user);
+							MainMenuWindowsEx mainMenuFrameEx = new MainMenuWindowsEx(globalParams);
+							mainMenuFrameEx.setVisible(true);
+							setVisible(false);
+							dispose();
 						}else {
 							JOptionPane.showMessageDialog(contentPane,"Contraseña Incorrecta.","Error",JOptionPane.ERROR_MESSAGE);
 						}
